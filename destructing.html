@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<p id="demo"></p>
+  
+<script>
+
+function calculate(a, b) { 
+    const add = a + b; 
+    const subtract = a - b;
+    const multiply = a * b;
+    const divide = a / b;
+    return [add, subtract, multiply, divide];
+}
+
+const [add, subtract, multiply, divide] = calculate(4, 7);
+document.write("<p>Sum: " + add + "</p>");
+document.write("<p>Difference " + subtract + "</p>");
+document.write("<p>Product: " + multiply + "</p>");
+document.write("<p>Quotient " + divide + "</p>");
+
+const vehicleOne = {
+  brand: 'Ford',
+  model: 'Mustang',
+  type: 'car',
+  year: 2021, 
+  color: 'red'
+}
+
+myVehicle(vehicleOne); //a hoisting example
+
+function myVehicle({type, color, brand, model}) {
+  const message = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.';
+
+  document.getElementById("demo").innerHTML = message;
+}
+
+
+
+var names = ["alpha", "beta", "gamma", "delta"]; 
+var [firstName, secondName, ...lastName] = names; 
+     
+console.log(firstName);//"alpha" 
+console.log(secondName);//"beta" 
+console.log(lastName); 
+[firstName , secondName] = [secondName , firstName]; //swapping
+console.log(firstName);//beta
+console.log(secondName);//alpha
+//Both of the procedure are same 
+var [firstName, ,thirdName] = ["alpha", "beta", "gamma", "delta"]; 
+         
+console.log(firstName);//"alpha" 
+console.log(thirdName);//gamma 
+
+let obj = {
+    name: "Musthafa",
+    add : {
+        country: "India",
+        state : {
+            code : "Kerala",
+            pincode:"670101",
+            article:{
+              topic : "nature"
+            }
+        }
+    }
+}
+ 
+let {name} = obj;
+console.log(name)
+ 
+let {add:{country:abcd}} = obj
+console.log(abcd)
+ 
+let {add:{state:{code:cd}}} = obj
+console.log(cd)
+ 
+let {add:{state:{article:{topic:ef}}}} = obj
+console.log(ef);
+</script>
+
+</body>
+</html>

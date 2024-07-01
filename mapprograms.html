@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<h2>The Map() Method</h2>
+
+<p>Map Programs</p>
+
+<p id="demo"></p>
+
+<script>
+
+let todoList = [ 
+{item_name:"Apple", price:"$5", quantity:1, brand_details: {name:"Golden Delicious", location:"San Francisco"}, isChecked:true},
+{item_name:"Bannana", price:"$3", quantity:2, brand_details: {name:"Fuji", location:"San Diego"}, isChecked:false},
+{item_name:"Pears", price:"$7", quantity:4, brand_details: {name:"Golden Delicious", location:"San Francisco"}, isChecked:true},                         
+{item_name:"Milk", price:"$4", quantity:3, brand_details: {name:"Mother Dairy", location:"California"}, isChecked:false},                       
+];
+//print item with quantity and price
+const formattedList = todoList.map(item => `${item.item_name} with quantity ${item.quantity} with price ${item.price}`);
+formattedList.forEach(item => {
+  console.log(item);
+});
+
+//print item where checked is true
+const checkedList = todoList.filter(item => item.isChecked).map(item => `${item.item_name} from ${item.brand_details.name} is selected`);
+checkedList.forEach(item => console.log(item));
+
+//to print name and checked is true
+const newList = todoList.map(({item_name, isChecked})=>{
+  return [item_name, isChecked];
+});
+console.log(newList);
+
+//to print name and price
+const NewList = todoList.map(({item_name, price})=>{
+  return [item_name, price];
+});
+console.log(NewList);
+
+//to view locations
+const locationList = new Set(todoList.map(({brand_details: {location}})=>{
+  return location;
+}));
+console.log(locationList);
+
+//to add total object
+const todoListwithtotal = todoList.map(item =>({
+  ...item,
+  total: item.quantity * parseFloat(item.price.slice(1))
+}));
+console.log(todoListwithtotal);
+
+
+todoList.map((item)=>{
+  return Object.entries(item).map(
+    (todoList_entry)=>{
+      if(todoList_entry[0]=="brand_details"){
+        return Object.entries(todoList_entry[1]).map(
+          (brand_details_entry)=> brand_details_entry
+        );
+      } else {
+        return todoList_entry;
+      }
+    }
+  )
+});
+console.log(todoList);
+
+
+// todoList = todoList.map(
+//   (item)=> {
+//     delete item.price
+//     return item;
+//   }
+// );
+// console.log(todoList);
+</script>
+
+</body>
+</html>

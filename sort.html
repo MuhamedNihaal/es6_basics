@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The Array.sort() method sorts the elements of an array.</p>
+
+<p id="demo"></p>
+<p id="para"></p>
+
+<script>
+let numbers = [0,1,2,5,6,3,8,7,9,4];
+numbers.sort((a,b) => a-b);
+document.getElementById("para").innerHTML = numbers;
+
+const fruits = ["Banana", "Orange", "Apple", "Mango", "Pineapple", "Cherry", "Watermelon"];
+fruits.sort();
+fruits.reverse();
+document.getElementById("demo").innerHTML = fruits;
+
+let employees = [
+    {name: 'John', salary: 90000, hireDate: "July 1, 2010"},
+    {name: 'David', salary: 75000, hireDate: "August 15, 2009"},
+    {name: 'Ana', salary: 80000, hireDate: "December 12, 2011"}
+];
+// employees.sort(function(x,y){
+//     return x.salary - y.salary;
+// });
+
+// employees.sort(function (x, y) {
+//     let a = x.name.toUpperCase(),
+//         b = y.name.toUpperCase();
+//     return a == b ? 0 : a > b ? 1 : -1;
+// });
+
+employees.sort(function (x, y) {
+    let a = new Date(x.hireDate),
+        b = new Date(y.hireDate);
+    return a - b;
+});
+
+console.log(employees);
+</script>
+
+</body>
+</html>

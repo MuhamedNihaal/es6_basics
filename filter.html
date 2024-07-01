@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<h2>The filter() Method</h2>
+
+<p>Get every element in the array that has a value of 18 or more:</p>
+
+<p id="demo"></p>
+
+<script>
+const ages = [32, 33, 16, 18, 8, 40];
+
+document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+let filterElements = ages.filter((element) => element % 2 == 0);
+console.log(filterElements);
+
+
+var students = [
+    {rollNo: 21, name: 'Alpha', prizewon: 4},
+    {rollNo: 22, name: 'Beta', prizewon: 3},
+    {rollNo: 23, name: 'Gamma', prizewon: 0},
+    {rollNo: 24, name: 'Delta', prizewon: 4},
+    {rollNo: 25, name: 'Omega', prizewon: 1},
+];
+var acheivers = students.filter(function (student){
+    return student.prizewon == 4;
+});
+console.log(acheivers);
+
+
+let cities = [
+    {name: 'Los Angeles', population: 3792621},
+    {name: 'New York', population: 8175133},
+    {name: 'Chicago', population: 2695598},
+    {name: 'Houston', population: 2099451},
+    {name: 'Philadelphia', population: 1526006},
+];
+let bigCities = cities.filter(city => city.population > 3000000);
+console.log(bigCities);
+
+let smallCities = cities.filter(city => city.population < 3000000);
+console.log(smallCities);
+
+let citySort = cities.sort((c1,c2) => c1.population - c2.population);
+console.log(citySort);
+</script>
+
+</body>
+</html>

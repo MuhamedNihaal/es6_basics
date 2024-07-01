@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>The Arrow Function</h2>
+
+<p>This example shows the syntax of an Arrow Function, and how to use it.</p>
+
+<p id="demo"></p>
+
+<script>
+let myFunction = (a, b) => a * b;
+document.getElementById("demo").innerHTML = myFunction(7 , 5);
+
+
+var num = x => {
+    console.log(x);
+}
+num(450);
+
+
+var show = (a,b,c=500) => {
+    console.log(a + " " + b + " " + c);
+}
+show(100, 200, 300);
+
+
+let age = 5;
+let welcome = (age < 18)?
+() => console.log('Baby'):
+() => console.log('Adult');
+welcome();
+
+
+let sum = (a,b) => {
+    let result = a+b;
+    return result;
+}
+let results = sum(5,7);
+console.log(results);
+
+
+var show = (a, ...args) => {
+    console.log(a + " " + args);
+}
+show(100,200,300,400,500,600,700,800,900);
+
+
+function greet(){
+    console.log(input1);
+    var input1 = 8;
+    console.log("Hoisting the JavaScript");
+}
+greet();
+
+
+function Person(){
+    this.name = 'Jack',
+    this.age = 25,
+    this.sayName = function(){
+        // let age = 30
+        console.log(this.age);
+        let innerFunc = () => {
+            let age = 30;
+            console.log(this.age);
+        }
+        innerFunc();
+    }
+}
+const x = new Person();
+x.sayName();
+</script>
+
+</body>
+</html>

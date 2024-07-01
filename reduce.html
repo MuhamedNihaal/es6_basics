@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>Compute the sum of the rounded numbers in an array.</p>
+
+<p id="demo"></p>
+<p id="para"></p>
+
+<script>
+const numbers = [15.5, 2.3, 1.1, 4.7];
+
+document.getElementById("demo").innerHTML = numbers.reduce(getSum, 0);
+
+function getSum(total, num) {
+  return total + Math.round(num);
+}
+let sumOfElements = numbers.reduce((a,b) => a+b);
+console.log(sumOfElements);
+
+
+
+const bookList = [
+{name: "Harry Potter", no_pages: 700, release_date: "2010-11-20"},
+{name: "Da Vinci Code", no_pages: 800, release_date: "1990-03-04"}, 
+{name: "Breaking Dawn", no_pages: 600, release_date: "2001-08-14"},
+{name: "Eclipse", no_pages: 1200, release_date: "2006-05-22"}
+]
+const totalPages = bookList.reduce((total,item) => item.no_pages + total,0);
+console.log(totalPages);
+
+const minNoOfPages = bookList.reduce((min , item) => {
+    return min > item.no_pages ? item.no_pages : min
+},bookList[0].no_pages);
+console.log(minNoOfPages);
+
+const maxNoOfPages = bookList.reduce((max , item) => {
+    return max < item.no_pages ? item.no_pages : max
+},bookList[0].no_pages);
+console.log(maxNoOfPages);
+
+
+
+const bookMinPage = bookList.reduce(
+  (min , item) => {
+    return min.no_pages > item.no_pages ? item : min
+  }, bookList[0]
+);
+console.log(bookMinPage);
+
+const bookMaxPage = bookList.reduce(
+  (max , item) => {
+    return max.no_pages < item.no_pages ? item : max
+  }, bookList[0]
+);
+console.log(bookMaxPage);
+
+
+
+const latestBook = bookList.reduce(
+  (min , item) => {
+    const currentLatest = new Date(min.release_date);
+    const itemLatest = new Date(item.release_date);
+    return currentLatest > itemLatest ? min : item;
+  }, bookList[0]
+);
+console.log(latestBook);
+
+const oldestBook = bookList.reduce(
+  (min , item) => {
+    const currentLatest = new Date(min);
+    const itemLatest = new Date(item.release_date);
+    return currentLatest > itemLatest ? item : min;
+  }, bookList[0].release_date
+);
+console.log(oldestBook);
+</script>
+
+</body>
+</html>

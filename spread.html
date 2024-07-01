@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>The "spread" operator spreads elements of iterable objects:</p>
+<p id="demo"></p>
+<p id="para"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<script>
+const numbersOne = [1, 2, 3];
+const numbersTwo = [4, 5, 6];
+const numbersCombined = [...numbersOne, ...numbersTwo, 7, 8, 9]; //spread operator
+
+document.getElementById("demo").innerHTML = numbersCombined; 
+
+
+function f(a, b, c, ...args){
+    console.log(args);
+}
+const One = [6, 7, 8];
+f(1, 2, 3, 4, 5, ...One);  //rest parameter
+
+
+const obj1 = { foo: "bar", x: 42 };
+const obj2 = { foo: "baz", y: 13 };
+const clonedObj = { ...obj1 };
+// { foo: "bar", x: 42 }
+const mergedObj = { ...obj1, ...obj2 };// { foo: "baz", x: 42, y: 13 }
+console.log(mergedObj);
+
+
+let initialChars = ['A', 'B'];
+let midChars = ['E','F'];
+let chars = [...initialChars, 'C', 'D', ...midChars];
+console.log(chars); // ["A", "B", "C", "D"]
+let copiedChars = [...chars];
+document.getElementById("para").innerHTML = copiedChars;
+
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const [one, two, ...rest] = numbers;
+
+document.getElementById("demo2").innerHTML = one; 
+document.getElementById("demo3").innerHTML = two; 
+document.getElementById("demo4").innerHTML = rest; 
+</script>
+
+</body>
+</html>

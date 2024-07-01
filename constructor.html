@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Object Constructors</h2>
+
+<p id="demo"></p>
+<p id="para"></p>
+
+<script>
+// Constructor function for Person objects
+function Person1(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+function Person2(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+// Create a Person object
+const myFather = new Person1("John", "Doe", 50, "Blue Eyes");
+const myMother = new Person2("Ann", "Mary", 35, "Brown Eyes");
+// Add nationality to first object
+myFather.nationality = "English";
+function changeName(){
+    myMother.changeName("Doe");
+}
+// Add a name method to first object
+// myFather.name = function() {
+//   return this.firstName + " " + this.lastName;
+// };
+Person1.prototype.gender = "Male"; 
+console.log(Person1.gender);
+// Display age
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + " and he knows " + myFather.nationality + ", " + "His Name is " + [myFather.firstName,myFather.lastName].join(" "); 
+document.getElementById("para").innerHTML = "My Mother is " + [myMother.firstName,myMother.lastName].join(" ") + " Whose age is " + myMother.age
+</script>
+
+</body>
+</html>

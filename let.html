@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Window Object</h1>
+<h2>The setTimeout() Method</h2>
+
+<p>Wait 5 seconds for the greeting:</p>
+
+<p id="demo"></p>
+
+<script>
+for(let i=0; i<5; i++)
+{
+    setTimeout(function() {console.log(i)}, 1000);
+}
+
+
+// let x=10;
+// if(x==10){
+//     let x=20;
+//     document.getElementById('demo').innerHTML=x;
+// }
+// console.log(x);
+
+
+function increase(){
+    let counter=10;
+    console.log(counter);
+}
+increase();
+
+
+for(var i=0; i<5; i++){
+    console.log("Inside the Loop : ",i);
+}
+console.log("Outside the Loop : ",i);
+
+var b=20;
+console.log(window.b);
+let a=10;
+console.log(window.a);
+
+
+// var counter=0;
+// var counter;
+// console.log(counter);
+// let counter;
+// let counter=20;
+// console.log(counter);
+
+
+function sample(){
+    console.log(counter);
+}
+let counter=100;
+sample();
+
+
+let log= function(){
+    console.log(message);
+};
+let message = 'Hello';
+log();
+
+
+
+</script>
+
+</body>
+</html>
